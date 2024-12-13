@@ -1,112 +1,88 @@
-# Friday Night Funkin' - Psych Engine
-Engine originally used on [Mind Games Mod](https://gamebanana.com/mods/301107), intended to be a fix for the vanilla version's many issues while keeping the casual play aspect of it. Also aiming to be an easier alternative to newbie coders.
+# FieldTrip: Advanced MEG & EEG Analysis Toolbox
 
-## Installation:
+![FieldTrip Logo](https://via.placeholder.com/800x200?text=FieldTrip+Toolbox+for+MEG+and+EEG)  
 
-Refer to [the Build Instructions](./BUILDING.md)
+[![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=fieldtrip/fieldtrip&file=README.md)  
+[![GitHub contributors](https://img.shields.io/github/contributors/fieldtrip/fieldtrip?color=green)](https://github.com/fieldtrip/fieldtrip/graphs/contributors)  
+[![Last commit](https://img.shields.io/github/last-commit/fieldtrip/fieldtrip?style=plastic)](https://github.com/fieldtrip/fieldtrip)  
+[![Commit activity](https://img.shields.io/github/commit-activity/m/fieldtrip/fieldtrip)](https://github.com/fieldtrip/fieldtrip/commits/master)  
+[![GitHub stars](https://img.shields.io/github/stars/fieldtrip/fieldtrip?color=gold)](https://github.com/fieldtrip/fieldtrip/stargazers)  
+[![License: GPL-3.0](https://img.shields.io/badge/License-GPLv3-blue.svg?style=plastic)](https://www.gnu.org/licenses/gpl-3.0)
 
-## Customization:
+---
 
-if you wish to disable things like *Lua Scripts* or *Video Cutscenes*, you can read over to `Project.xml`
+FieldTrip is a MATLAB software toolbox for **MEG** and **EEG analysis** developed at the [Donders Institute for Brain, Cognition and Behaviour](https://www.ru.nl/donders/) in Nijmegen, Netherlands, along with collaborating institutes. 
 
-inside `Project.xml`, you will find several variables to customize Psych Engine to your liking
+## 🚀 Features
 
-to start you off, disabling Videos should be simple, simply Delete the line `"VIDEOS_ALLOWED"` or comment it out by wrapping the line in XML-like comments, like this `<!-- YOUR_LINE_HERE -->`
+FieldTrip offers advanced analysis methods, including:
 
-same goes for *Lua Scripts*, comment out or delete the line with `LUA_ALLOWED`, this and other customization options are all available within the `Project.xml` file
+- Time-frequency analysis
+- Source reconstruction (e.g., dipoles, distributed sources, beamformers)
+- Non-parametric statistical testing
 
-## Credits:
-* Shadow Mario - Head Developer, Programmer.
-* Riveren - Main Artist.
+### 🔌 Compatibility
+- Supports data formats from major MEG systems (e.g., CTF, Neuromag, Yokogawa).
+- Compatible with popular EEG systems.
+- Flexible architecture to add new formats easily.
 
-### Special Thanks
-* bbpanzu - Ex-Team Member (Programmer).
-* crowplexus - HScript Iris, Input System v3, and Other PRs.
-* Kamizeta - Creator of Pessy, Psych Engine's mascot.
-* MaxNeton - Loading Screen Easter Egg Artist/Animator.
-* Keoiki - Note Splash Animations and Latin Alphabet.
-* SqirraRNG - Crash Handler and Base code for Chart Editor's Waveform.
-* EliteMasterEric - Runtime Shaders support and Other PRs.
-* MAJigsaw77 - .MP4 Video Loader Library (hxvlc).
-* Tahir Toprak Karabekiroglu - Note Splash Editor and Other PRs.
-* iFlicky - Composer of Psync, Tea Time and some sound effects.
-* KadeDev - Fixed some issues on Chart Editor and Other PRs.
-* superpowers04 - LUA JIT Fork.
-* CheemsAndFriends - Creator of FlxAnimate.
-* Ezhalt - Pessy's Easter Egg Jingle.
-* MaliciousBunny - Video for the Final Update.
-_____________________________________
+Learn more at the official [FieldTrip Documentation](http://www.fieldtriptoolbox.org).
 
-# Features
+---
 
-## Attractive animated dialogue boxes:
+## 🛠️ Installation
 
-![](https://user-images.githubusercontent.com/44785097/127706669-71cd5cdb-5c2a-4ecc-871b-98a276ae8070.gif)
+### Steps:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/fieldtrip/fieldtrip.git
+   ```
+2. Add FieldTrip to your MATLAB path and run:
+   ```matlab
+   ft_defaults;
+   ```
+3. (Optional) Add the above to your MATLAB `startup.m` file.
 
+⚠️ **Important:** Avoid using `addpath(genpath(...))` to prevent adding external or compatibility directories.
 
-## Mod Support
-* Probably one of the main points of this engine, you can code in .lua files outside of the source code, making your own weeks without even messing with the source!
-* Comes with a Mod Organizing/Disabling Menu.
+For detailed instructions, visit the [Installation Guide](https://www.fieldtriptoolbox.org/faq/installation/).
 
+---
 
-## Atleast one change to every week:
-### Week 1:
-  * New Dad Left sing sprite
-  * Unused stage lights are now used
-  * Dad Battle has a spotlight effect for the breakdown
-### Week 2:
-  * Both BF and Skid & Pump does "Hey!" animations
-  * Thunders does a quick light flash and zooms the camera in slightly
-  * Added a quick transition/cutscene to Monster
-### Week 3:
-  * BF does "Hey!" during Philly Nice
-  * Blammed has a cool new colors flash during that sick part of the song
-### Week 4:
-  * Better hair physics for Mom/Boyfriend (Maybe even slightly better than Week 7's :eyes:)
-  * Henchmen die during all songs. Yeah :(
-### Week 5:
-  * Bottom Boppers and GF does "Hey!" animations during Cocoa and Eggnog
-  * On Winter Horrorland, GF bops her head slower in some parts of the song.
-### Week 6:
-  * On Thorns, the HUD is hidden during the cutscene
-  * Also there's the Background girls being spooky during the "Hey!" parts of the Instrumental
+## 📄 Copyright and Licensing
 
-## Cool new Chart Editor changes and countless bug fixes
-![](https://github.com/ShadowMario/FNF-PsychEngine/blob/main/docs/img/chart.png?raw=true)
-* You can now chart "Event" notes, which are bookmarks that trigger specific actions that usually were hardcoded on the vanilla version of the game.
-* Your song's BPM can now have decimal values
-* You can manually adjust a Note's strum time if you're really going for milisecond precision
-* You can change a note's type on the Editor, it comes with five example types:
-  * Alt Animation: Forces an alt animation to play, useful for songs like Ugh/Stress
-  * Hey: Forces a "Hey" animation instead of the base Sing animation, if Boyfriend hits this note, Girlfriend will do a "Hey!" too.
-  * Hurt Notes: If Boyfriend hits this note, he plays a miss animation and loses some health.
-  * GF Sing: Rather than the character hitting the note and singing, Girlfriend sings instead.
-  * No Animation: Character just hits the note, no animation plays.
+FieldTrip is open-source software released under the **GNU GPL-3.0 License**. You can freely redistribute and modify it. See the [COPYING file](./COPYING) for more details.
 
-## Multiple editors to assist you in making your own Mod
-![Screenshot_3](https://user-images.githubusercontent.com/44785097/144629914-1fe55999-2f18-4cc1-bc70-afe616d74ae5.png)
-* Working both for Source code modding and Downloaded builds!
+### 🌟 Key Contributors
 
-## Story mode menu rework:
-![](https://i.imgur.com/UB2EKpV.png)
-* Added a different BG to every song (less Tutorial)
-* All menu characters are now in individual spritesheets, makes modding it easier.
+- **Robert Oostenveld**  
+- **Jan-Mathijs Schoffelen**  
+- **Pascal Fries**  
+- **Eric Maris**  
+- **Arjen Stolk**  
+- And many more...  
 
-## Credits menu
-![Screenshot_1](https://user-images.githubusercontent.com/44785097/144632635-f263fb22-b879-4d6b-96d6-865e9562b907.png)
-* You can add a head icon, name, description and a Redirect link for when the player presses Enter while the item is currently selected.
+For the full list of contributors and affiliations, see the [CONTRIBUTORS.md](./CONTRIBUTORS.md).
 
-## Awards/Achievements
-* The engine comes with 16 example achievements that you can mess with and learn how it works (Check Achievements.hx and search for "checkForAchievement" on PlayState.hx)
+---
 
-## Options menu:
-* You can change Note colors, Delay and Combo Offset, Controls and Preferences there.
- * On Preferences you can toggle Downscroll, Middlescroll, Anti-Aliasing, Framerate, Low Quality, Note Splashes, Flashing Lights, etc.
+## 📢 Join the Community
 
-## Other gameplay features:
-* When the enemy hits a note, their strum note also glows.
-* Lag doesn't impact the camera movement and player icon scaling anymore.
-* Some stuff based on Week 7's changes has been put in (Background colors on Freeplay, Note splashes)
-* You can reset your Score on Freeplay/Story Mode by pressing Reset button.
-* You can listen to a song or adjust Scroll Speed/Damage taken/etc. on Freeplay by pressing Space.
-* You can enable "Combo Stacking" in Gameplay Options. This causes the combo sprites to just be one sprite with an animation rather than sprites spawning each note hit.
+Have questions? Want to contribute? Get involved with the FieldTrip community:
+
+- **Website:** [FieldTrip Toolbox](http://www.fieldtriptoolbox.org)  
+- **GitHub Discussions:** [Start a Conversation](https://github.com/fieldtrip/fieldtrip/discussions)  
+- **Contribute:** Check out our [Contribution Guidelines](./CONTRIBUTING.md)
+
+---
+
+### 📸 Showcase
+
+![Demo Visualization](https://via.placeholder.com/600x300?text=Visualization+Example)
+
+Explore how FieldTrip powers cutting-edge neuroscience research!
+
+---
+
+*Made with ❤️ by neuroscientists for neuroscientists.*
+V
